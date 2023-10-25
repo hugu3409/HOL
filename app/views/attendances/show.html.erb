@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @attendance.date %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @attendance.student_id %>
+</p>
+
+<p>
+  <strong>Situation:</strong>
+  <%= @attendance.situation_id %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @attendance.reason %>
+</p>
+
+<p>
+  <strong>Period start:</strong>
+  <%= @attendance.period_start %>
+</p>
+
+<p>
+  <strong>Period end:</strong>
+  <%= @attendance.period_end %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @attendance.comment %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @attendance.teacher_id %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>
