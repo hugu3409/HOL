@@ -7,6 +7,38 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      teacher: 先生
+      attendance: 出欠
+      situation: 出欠種別
+      student: 生徒
+      classroom: クラス
+    attributes:
+      teacher:
+        teacher_id: 先生ID
+        password: 先生パスワード
+        name: 先生名
+        kanri: 管理者
+        classroom_id: クラスID
+      attendance:
+        date: 日付
+        student_id: 生徒ID
+        situation_id: 出席状況
+        reason: 理由
+        period_start: 期間開始
+        period_end: 期間終了
+        comment: コメント
+        teacher_id: 先生ID
+      situation:
+        name: 出欠種別
+      student:
+        name: 名前
+        classroom_id: クラスID
+        number: 出席番号
+      classroom:
+        grade: 学年
+        class: クラス
+        name: クラス名
   date:
     abbr_day_names:
     - 日
