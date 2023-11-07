@@ -1,0 +1,28 @@
+<h1>クラス選択</h1>
+<p>Find me in app/views/select/show.html.erb</p>
+
+
+<button class="11" type="button">1年1組<%= link_to new_student_path %></button>
+<button class="11" type="button">1年2組</button>
+<button class="11" type="button">1年3組</button>
+<button class="11" type="button">1年4組</button>
+<br>
+<button class="11" type="button">2年1組</button>
+<button class="11" type="button">2年2組</button>
+<button class="11" type="button">2年3組</button>
+<button class="11" type="button">2年4組</button>
+<br>
+<button class="11" type="button">3年1組</button>
+<button class="11" type="button">3年2組</button>
+<button class="11" type="button">3年3組</button>
+<button class="11" type="button">3年4組</button>
+<br>
+
+<br>
+
+
+<% @classrooms.each do |c| %>
+    <%= c.grade %>
+    <%= c.class %>
+    <%= c.name %>
+<% end %>
