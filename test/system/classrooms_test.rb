@@ -14,7 +14,7 @@ class ClassroomsTest < ApplicationSystemTestCase
     visit classrooms_url
     click_on "New Classroom"
 
-    fill_in "Class", with: @classroom.class
+    fill_in "Number", with: @classroom.number
     fill_in "Grade", with: @classroom.grade
     fill_in "Name", with: @classroom.name
     click_on "Create Classroom"
@@ -27,7 +27,7 @@ class ClassroomsTest < ApplicationSystemTestCase
     visit classrooms_url
     click_on "Edit", match: :first
 
-    fill_in "Class", with: @classroom.class
+    fill_in "Number", with: @classroom.number
     fill_in "Grade", with: @classroom.grade
     fill_in "Name", with: @classroom.name
     click_on "Update Classroom"
