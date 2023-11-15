@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'login/show', to: 'login#show'
   post 'login/login', to: 'login#login'
   get 'select/show', to: 'select#show'
+  get 'attendance_list/:classroom_id', to: 'attendance_list#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
