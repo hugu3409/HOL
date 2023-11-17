@@ -10,13 +10,12 @@
     <thead> <!--いるらしい-->
         <tr>
             <td colspan="2">
-                <select name=”item”>
-                    <option value=”item1”>３年１組</option> <!--classroomsテーブルのnameから引っ張ってくる-->
-                    <option value=”item2”>３年２組</option>
-                    <option value=”item3”>３年３組</option>
-                    <option value=”item4”>３年４組</option>
-                </select>
+              <%= form_with model: @classroom do |f| %>
+                <%= f.collection_select :classroom_id, @classrooms, :id, :name, selected: @classroom_id %><!--seledctd以降はURLのどこのクラスかを受け取る-->
+                <%#= f.submit '送信'%> <!--放置-->
+              <% end %>
            </td>
+           
             <td>１月１日</td>
             <td>１月２日</td>
             <td><button type="button">＜</button></td>
@@ -104,3 +103,78 @@
     </tbody>
 </table>
 <button type="button">印刷確認</button>
+
+<%= form_with model: @classroom do |f| %>
+  <%= f.collection_select :classroom_id, @classrooms, :id, :name, selected: @classroom_id %><!--seledctd以降はURLのどこのクラスかを受け取る-->
+  <%= f.submit '送信'%> <!--放置-->
+<% end %>
+
+  <table class="table table-bordered">
+    <tr>
+      <td colspan="2">
+        <%= form_with model: @classroom do |f| %>
+            <%= f.collection_select :classroom_id, @classrooms, :id, :name, selected: @classroom_id %><!--seledctd以降はURLのどこのクラスかを受け取る-->
+            <%#= f.submit '送信'%> <!--放置-->
+        <% end %>
+      </td>
+      <td>１月１日</td>
+      <td>１月２日</td>
+      <td><button type="button">＜</button></td>
+      <td colspan="2" class="text-center">１月３日</td>
+      <td><button type="button">＞</button></td> <!-- class="text-center"右寄せ検討-->
+      <td>１月４日</td>
+      <td>１月７日</td>
+    </tr>
+    <tr>
+        <td>　</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td colspan="4" rowspan="3" class="text-center"><button onclick="location.href='https:/digitor.jp/textbook/html-button/'">確認</button></td> <!--class="text-center"-->
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>　</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>　</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>　</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>出欠状況</td>
+        <td>理由</td>
+        <td>期間</td>
+        <td>コメント</td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <% @students.each do |student| %>
+      <tr>
+          <td><%= student.number %></td>
+          <td><%= link_to student.name, "#", :onclick=>"window.open(this.href,'hoge', 'height=400, width=800');return false;" %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+    <% end %>
+  </table>
