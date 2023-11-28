@@ -1,5 +1,6 @@
 class SelectController < ApplicationController
   def show
-    @classrooms = Classroom.all
+    list = Classroom.all.order(:grade, :number)
+    @classrooms = list.group_by(&:grade).values
   end
 end
