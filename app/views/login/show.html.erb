@@ -1,0 +1,8 @@
+<h1>健康観察簿システム</h1>
+<%= form_tag ('login') do %>
+    <p>先生ID</p>
+    <%= text_field_tag :teacher_id %>
+    <p>PW</p>
+    <%= text_field_tag :password %>
+    <%= submit_tag "ログイン" %> 
+<% end %>
