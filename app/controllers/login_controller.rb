@@ -8,7 +8,7 @@ class LoginController < ApplicationController
 
         if  @teacher.password = params[:password]
             if @teacher.classroom_id.present?
-                redirect_to "/attendance_list/1"
+                redirect_to attendance_list_show_path(@teacher.classroom_id)
             else
                 redirect_to "/select/show"
             end
