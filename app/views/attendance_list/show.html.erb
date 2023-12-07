@@ -1,20 +1,11 @@
-<h1>AttendanceList#show</h1>
-<p>Find me in app/views/attendance_list/show.html.erb</p>
+<h1>出欠一覧</h1>
 
-クラスID：<%= @classroom_id %>
-<br/>
-日付：<%= @base_date %>
-<br/>
-
-<table border="1" class="table table-striped"><!--class="table table-striped" これ入れると表がストライプなる-->
-    <thead> <!--いるらしい-->
+<table border="1" class="table table-bordered table-hover"><!--class="table table-striped" これ入れると表がストライプなる-->
+    <thead class="table-light"> <!--いるらしい-->
         <tr>
             <td colspan="2">
-              <%= form_with model: @classroom do |f| %>
-                <%= f.collection_select :classroom_id, @classrooms, :id, :name, selected: @classroom_id %><!--seledctd以降はURLのどこのクラスかを受け取る-->
-                <%#= f.submit '送信'%> <!--放置-->
-              <% end %>
-           </td>
+                <%= collection_select :classroom, :classroom_id, @classrooms, :id, :name, {selected: @classroom_id}, {class: "form-control"} %>
+            </td>
            
             <td><%= @from_date %></td>
             <td><%= @from_date + 1 %></td>
@@ -24,15 +15,14 @@
             <td><%= @to_date - 1 %></td>
             <td><%= @to_date %></td>
         </tr>
-    </thead>
-
-    <tbody> <!--いるらしい-->
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td colspan="4"class="text-center"><button onclick="location.href='#'">確認</button></td> <!--class="text-center"-->
+            <td colspan="4"class="text-center">
+                <%= link_to "確認", print_show_path(@base_date, @classroom_id), class: "btn btn-outline-secondary" %>
+            </td> <!--class="text-center"-->
             <td></td>
             <td></td>
         </tr>
@@ -48,11 +38,13 @@
             <td></td>
             <td></td>
         </tr>
+    </thead>
 
+    <tbody class="table-group-divider">
         <% @students.each do |s| %>
             <tr>
-                <td><button onclick="location.href='#'"><%= s.number %></button></td>
-                <td><%= s.name %></td>
+                <td><%= s.number %></td>
+                <td><%= link_to s.name, attendance_list_edit_path(@base_date, s.id), remote: true %></td>
 
                 <% (@from_date..@to_date).each do |date| %>
                     <% attendance = ( @attendances.detect { |a| a.student_id == s.id && a.date == date } || Attendance.new ) %>
@@ -60,7 +52,7 @@
 
                     <% if date == @base_date %>
                         <td><%= attendance.reason %></td>
-                        <td><%= attendance.period_start %> ～ <%= attendance.period_end %></td>
+                        <td><%= attendance.period %></td>
                         <td><%= attendance.comment %></td>
                     <% end %>
                 <% end %>
@@ -68,4 +60,16 @@
         <% end %>
     </tbody>
 </table>
-<button type="button">印刷確認</button>
+
+<div id="modal-form" class="modal fade"></div>
+
+<% content_for :inline_js do %>
+<script type="text/javascript">
+<!--
+    // 学年・クラスのプルダウンを変更した際に画面遷移する
+    $("#classroom_classroom_id").change(function() {
+        window.location.href = "/attendance_list/" + $(this).val();
+    });
+// -->
+</script>
+<% end %>

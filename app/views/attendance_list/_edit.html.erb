@@ -1,0 +1,74 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">出欠登録</h5>
+            <button type="button" class="btn-closee" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    
+        <div class="modal-body">
+            <%= form_with(model: @attendance, url: attendance_list_update_path) do |form| %>
+                <% if @attendance.errors.any? %>
+                    <div id="error_explanation">
+                        <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+                        <ul>
+                            <% @attendance.errors.each do |error| %>
+                                <li><%= error.full_message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+
+                <%= form.hidden_field :id %>
+
+                <div class="field">
+                    対象日： <%= @attendance.date %>
+                    <%= form.hidden_field :date %>
+                </div>
+
+                <div class="field">
+                    対象者： <%= @attendance.student.name %>
+                    <%= form.hidden_field :student_id %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :situation_id %>
+                    <div class="form-check form-check-inline">
+                        <%= form.collection_radio_buttons(:situation_id, Situation::TARGET_LIST, :id, :name) do |b| %>
+                            <%= b.label(class: "form-check-label") { b.radio_button(class: "form-check-input") + b.text } %>  
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <%= form.label :reason %>
+                    <%= form.text_field :reason %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :period_start %>
+                    <%= form.date_field :period_start %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :period_end %>
+                    <%= form.date_field :period_end %>
+                </div>
+
+                <div class="field">
+                    <%= form.label :comment %>
+                    <%= form.text_field :comment %>
+                </div>
+
+                <div class="actions">
+                    <%= form.submit nil, class: "btn btn-outline-secondary" %>
+                </div>
+            <% end %>
+
+            <% if @attendance.id.present? %>
+                <%= button_to "削除", attendance_list_delete_path(@attendance.id), method: :delete, class: "btn btn-outline-secondary" %>
+            <% end %>
+        </div>
+    </div>
+</div>
