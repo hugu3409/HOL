@@ -4,10 +4,10 @@
     <thead class="table-light">
         <tr>
             <td colspan="2">&nbsp;</td>
-            <td colspan="2">１組</td>
-            <td colspan="2">２組</td>
-            <td colspan="2">３組</td>
-            <td colspan="2">４組</td>
+            <td colspan="2"><font size="4">１組</font></td>
+            <td colspan="2"><font size="4">２組</font></td>
+            <td colspan="2"><font size="4">３組</font></td>
+            <td colspan="2"><font size="4">４組</font></td>
         </tr>
         <tr>
             <td colspan="2">&nbsp;</td>
@@ -24,7 +24,7 @@
     <tbody class="table-group-divider">
         <% current_row = 0 %>
         <% @classroom.keys.each do |grade| %>
-            <% Situation::TARGET_LIST.each do |s| %>
+            <% Situation.target_list.each do |s| %>
                 <% @attendance_hash[grade][s.id].each do |row| %>
                     <tr>
                         <% if @grade_header_row.include?(current_row) %>

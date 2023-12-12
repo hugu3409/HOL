@@ -1,17 +1,12 @@
 class Situation < ApplicationRecord
 
-    KESSEKI = Situation.find_by(name: "欠席")
-    SYUTTEI = Situation.find_by(name: "出席停止")
-    CHIKOKU = Situation.find_by(name: "遅刻")
-    SOUTAI  = Situation.find_by(name: "早退")
+    def self.target_list
+        criteria = ["欠席", "出席停止", "遅刻", "早退"]
+        Situation.where(name: criteria)
+    end
 
+    def self.target_id_list
+        Situation.target_list.map(&:id)
+    end
 
-    TARGET_LIST = [
-        KESSEKI,
-        SYUTTEI,
-        CHIKOKU,
-        SOUTAI
-    ]
-
-    TARGET_ID_LIST = TARGET_LIST.map(&:id)
 end

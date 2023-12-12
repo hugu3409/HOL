@@ -15,7 +15,7 @@ class PrintController < ApplicationController
     @attendance_count_hash = {}
     @classroom.keys.each do |grade|
       @attendance_count_hash[grade] = {}
-      Situation::TARGET_ID_LIST.each do |s|
+      Situation.target_id_list.each do |s|
         @attendance_count_hash[grade][s] = 1
       end
     end
@@ -50,7 +50,7 @@ class PrintController < ApplicationController
     @attendance_hash = {}
     @classroom.keys.each do |grade|
       @attendance_hash[grade] = {}
-      Situation::TARGET_ID_LIST.each do |s|
+      Situation.target_id_list.each do |s|
         @attendance_hash[grade][s] = Array.new(@attendance_count_hash[grade][s]) { {} }
       end
     end
