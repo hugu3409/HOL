@@ -61,6 +61,10 @@
     </tbody>
 </table>
 
+<td colspan="4"class="text-center">
+    <%= link_to "印刷確認", print_show_path(@base_date, @classroom_id), class: "btn btn-outline-secondary" %>
+</td> <!--class="text-center"-->
+
 <div id="modal-form" class="modal fade"></div>
 
 <% content_for :inline_js do %>

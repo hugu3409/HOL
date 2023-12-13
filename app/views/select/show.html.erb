@@ -1,9 +1,12 @@
-<h1>クラス選択</h1>
-
-
-<% @classrooms.each do |grades| %>
-    <% grades.each do |c| %>
-        <%= link_to c.name, attendance_list_show_path(c.id), {class: "btn"} %>
-    <% end %>
-    <br />
+<center><h1>クラス選択</h1></center>
+<br><br>
+<center>
+    <% @classrooms.each do |grades| %>
+        <% grades.each do |c| %>
+            
+            <button type="button" class="btn btn-outline-secondary" ><%= link_to c.name, attendance_list_show_path(c.id), {class: "btn"} %></button>
+        <% end %>
+        <br />
 <% end %>
+</center>
+
