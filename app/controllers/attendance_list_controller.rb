@@ -24,7 +24,7 @@ class AttendanceListController < ApplicationController
     unless @attendance
       @attendance = Attendance.new
       @attendance.date = params[:base_date]
-      @attendance.situation = Situation::KESSEKI
+      @attendance.situation = Situation.first
       @attendance.student = Student.find(params[:student_id])
     end
   end

@@ -35,7 +35,7 @@
                 <div class="field">
                     <%= form.label :situation_id %>
                     <div class="form-check form-check-inline">
-                        <%= form.collection_radio_buttons(:situation_id, Situation::TARGET_LIST, :id, :name) do |b| %>
+                        <%= form.collection_radio_buttons(:situation_id, Situation.target_list, :id, :name) do |b| %>
                             <%= b.label(class: "form-check-label") { b.radio_button(class: "form-check-input") + b.text } %>  
                         <% end %>
                     </div>
