@@ -1,12 +1,15 @@
+<br>
 <center><h1>クラス選択</h1></center>
 <br><br>
 <center>
     <% @classrooms.each do |grades| %>
         <% grades.each do |c| %>
             
-            <button type="button" class="btn btn-outline-secondary" ><%= link_to c.name, attendance_list_show_path(c.id), {class: "btn"} %></button>
+            <button type="button"  class="btn btn-outline-secondary btn-sm"><%= link_to c.name, attendance_list_show_path(c.id), {class: "btn btn-lg"} %></button>
+            <!--最初のbutton classはボタンの外側の見た目　最後の方のclassはボタンの中の文字の見た目-->
         <% end %>
         <br />
+        <br>
 <% end %>
 </center>
 
