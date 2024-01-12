@@ -1,24 +1,23 @@
 <h1>全学年出欠</h1>
-
-<table border="1" class="table table-bordered">
+<table border="2" class="table table-bordered">
     <thead class="table-light">
         <tr>
-            <td colspan="2">&nbsp;</td>
-            <td colspan="2"><font size="4">１組</font></td>
-            <td colspan="2"><font size="4">２組</font></td>
-            <td colspan="2"><font size="4">３組</font></td>
-            <td colspan="2"><font size="4">４組</font></td>
+            <td class="table-light3" colspan="2">&nbsp;</td>
+            <td class="table-light3" colspan="2"><font size="4">１組</font></td>
+            <td class="table-light3" colspan="2"><font size="4">２組</font></td>
+            <td class="table-light3" colspan="2"><font size="4">３組</font></td>
+            <td class="table-light3" colspan="2"><font size="4">４組</font></td>
         </tr>
         <tr>
             <td colspan="2">&nbsp;</td>
-            <td>名前・症状</td>
-            <td>期間</td>
-            <td>名前・症状</td>
-            <td>期間</td>
-            <td>名前・症状</td>
-            <td>期間</td>
-            <td>名前・症状</td>
-            <td>期間</td>
+            <td class="table-light2">名前・症状</td>
+            <td class="table-light2">期間</td>
+            <td class="table-light2">名前・症状</td>
+            <td class="table-light2">期間</td>
+            <td class="table-light2">名前・症状</td>
+            <td class="table-light2">期間</td>
+            <td class="table-light2">名前・症状</td>
+            <td class="table-light2">期間</td>
         </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -28,12 +27,11 @@
                 <% @attendance_hash[grade][s.id].each do |row| %>
                     <tr>
                         <% if @grade_header_row.include?(current_row) %>
-                            <td rowspan="<%= @attendance_count_hash[grade][:count_sammary] %>" class="table-light"><%= "#{grade}年" %></td>
+                            <td rowspan="<%= @attendance_count_hash[grade][:count_sammary] %>" class="table-light"><center><font class="all-grade" size="4"><%= "#{grade}年" %></font></center></td>
                         <% end %>
                         <% if @situation_header_row.include?(current_row) %>
-                            <td rowspan="<%= @attendance_count_hash[grade][s.id] %>" class="table-light"><%= s.name %></td>
+                            <td rowspan="<%= @attendance_count_hash[grade][s.id] %>" class="table-light4"><%= s.name %></td>
                         <% end %>
-                        
                         <% @classroom[grade].group_by(&:number).keys.each do |class_number| %>
                             <td><%= row[class_number].student_name_and_reazon %></td>
                             <td><%= row[class_number].period %></td>
@@ -45,6 +43,6 @@
         <% end %>
     </tbody>
 </table>
-
-<%= link_to "戻る", attendance_list_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary" %>
-<%= link_to "印刷", nil, onclick: "window.print()", class: "btn btn-outline-secondary" %>
+<%= link_to "戻る", attendance_list_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>
+<%= link_to "印刷", nil, onclick: "window.print()", class: "btn btn-outline-secondary btn-lg"  %>
+<%= link_to "ログアウト", login_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>

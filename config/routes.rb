@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :classrooms
   resources :teachers
   resources :select
+  root to: 'login#show'
+  get 'login/show', to: 'login#show'
+  post 'login/login', to: 'login#login', as: 'login'
   get 'login/show', to: 'login#show'
   post 'login/login', to: 'login#login'
   get 'select/show', to: 'select#show'
