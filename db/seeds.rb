@@ -48,6 +48,7 @@ s_kesseki = Situation.create(name: "欠席")
 s_syuttei = Situation.create(name: "出席停止")
 s_chikoku = Situation.create(name: "遅刻")
 s_soutai = Situation.create(name: "早退")
+s_fumei = Situation.create(name: "不明")
 
 # 出欠情報
 base_date = Date.today

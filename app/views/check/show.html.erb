@@ -1,0 +1,28 @@
+<h1>入力確認</h1>
+<%= @base_date %>
+<%= @classroom_id %>
+<br>
+<table border="1" class="table table-bordered table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>出欠種別</th>
+            <th>出席番号</th>
+            <th>名前</th>
+            <th>理由</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @attendances.each do |a| %>
+            <tr <%= "class=table-active" if a.situation.fumei? %> >
+                <td><%= a.situation.name%></td>
+                <td><%= a.student.number %></td>
+                <td><%= a.student.name %></td>
+                <td><%= a.reason %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
+<%= link_to "戻る", attendance_list_show_path(@classroom_id, base_date: @base_date), class: "btn btn-outline-secondary" %>
+<%= link_to "ログアウト", login_show_path(@classroom_id, base_date: @base_date), class: "btn btn-outline-secondary" %>
