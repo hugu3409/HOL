@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   delete 'attendance_list/:id', to: 'attendance_list#delete', as: 'attendance_list_delete'
   get 'attendance_list/:classroom_id', to: 'attendance_list#show', as: 'attendance_list_show'
   get 'print/:base_date/:classroom_id', to: 'print#show', as: 'print_show'
+  get 'check/show/:base_date/:classroom_id', to: 'check#show', as: 'check_show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
