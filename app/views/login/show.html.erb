@@ -1,8 +1,26 @@
-<h1>健康観察簿システム</h1>
-<%= form_tag ('login') do %>
-    <p>先生ID</p>
-    <%= text_field_tag :teacher_id %>
-    <p>PW</p>
-    <%= text_field_tag :password %>
-    <%= submit_tag "ログイン" %> 
+<br><br><br><br><br><br><br><br>
+<%# 表の線 %>
+<table border = "5" align = "center"> 
+<td><br><br><h1 align = "center">健康観察簿システム</h1><br><br>
+<%= form_tag login_path do %>
+<table align = "center">
+ <tr>
+    <td><p align = "center"><font size="5">ID</font>&nbsp;</p></td>
+    <td><p align = "center"><%= text_field_tag :teacher_id %>&nbsp;&nbsp;&nbsp;</p></td>
+    <%# 管理者用のチェック %>
+    <%# <td><sup><%=check_box_tag'kanri',true,false,{style: "transform: scale(2);"}</sup></td> %>
+ </tr>
+</table>
+
+<table align = "center">
+ <tr>
+    <td><p align = "center"><font size="5">PW</font></p></td>
+    <td><p align = "center"><%= text_field_tag :password %>　&nbsp;&nbsp;</p></td>
+ </tr>
+</table><br>
+<%# 全角スペースを入れて右にしてる↓ %>
+    <p align = "center">　　　　　　　　　　　　　　　　　　　　　<font size="3"><%= submit_tag "ログイン" %></font>　&nbsp; </p>
+
 <% end %>
+</td>
+</table>
