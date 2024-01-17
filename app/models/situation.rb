@@ -9,6 +9,10 @@ class Situation < ApplicationRecord
         Situation.target_list.map(&:id)
     end
 
+    def self.syuttei
+        Situation.find_by(name: "出席停止")
+    end
+
     def fumei?
         id == Situation.find_by(name: "不明").id
     end
