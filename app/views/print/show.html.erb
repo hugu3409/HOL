@@ -1,5 +1,4 @@
 <h1>全学年出欠</h1>
-
 <table border="2" class="table table-bordered">
     <thead class="table-light">
         <tr>
@@ -33,7 +32,6 @@
                         <% if @situation_header_row.include?(current_row) %>
                             <td rowspan="<%= @attendance_count_hash[grade][s.id] %>" class="table-light4"><%= s.name %></td>
                         <% end %>
-                        
                         <% @classroom[grade].group_by(&:number).keys.each do |class_number| %>
                             <td><%= row[class_number].student_name_and_reazon %></td>
                             <td><%= row[class_number].period %></td>
@@ -45,8 +43,6 @@
         <% end %>
     </tbody>
 </table>
-
-
 <%= link_to "戻る", attendance_list_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>
 <%= link_to "印刷", nil, onclick: "window.print()", class: "btn btn-outline-secondary btn-lg"  %>
 <%= link_to "ログアウト", login_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>

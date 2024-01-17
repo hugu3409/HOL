@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :classrooms
   resources :teachers
   resources :select
+  root :to => 'login#show'
+  get 'login/show', to: 'login#show'
+  post 'login/login', to: 'login#login', as: 'login'
   get 'select/show', to: 'select#show'
   get    'attendance_list/edit/:base_date/:student_id', to: 'attendance_list#edit', as: 'attendance_list_edit'
   post   'attendance_list', to: 'attendance_list#create', as: 'attendance_list_create'
