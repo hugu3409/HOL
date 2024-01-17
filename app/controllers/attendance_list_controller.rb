@@ -31,8 +31,19 @@ class AttendanceListController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
-    @attendance.save
-    redirect_to attendance_list_show_path(@attendance.student.classroom.id, base_date: @attendance.date)
+    base_date = @attendance.date
+
+    if @attendance.situation_id == Situation.syuttei.id
+      (@attendance.period_start..@attendance.period_end).each do |date|
+        @attendance = Attendance.new(attendance_params)
+        @attendance.date = date
+        @attendance.save
+      end
+    else
+      @attendance.save
+    end
+    
+    redirect_to attendance_list_show_path(@attendance.student.classroom.id, base_date: base_date)
   end
 
   def update
