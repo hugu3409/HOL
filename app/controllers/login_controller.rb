@@ -2,13 +2,19 @@ class LoginController < ApplicationController
     def show
     end
 
-    validates :error_check
-    def error_check
-if login.present?
-    end
-
     def login
-    
+        if  params[:teacher_id].blank?
+            flash[:alert] = 'ＩＤかＰＷが間違っています。入力し直してください。'
+            render :show
+            return
+        end
+
+        if  params[:password].blank?
+            flash[:alert] = 'ＩＤかＰＷが間違っています。入力し直してください。'
+            render :show
+            return
+        end
+
         @teacher = Teacher.find_by(teacher_id: params[:teacher_id])
 
         if   @teacher.password == params[:password]
@@ -25,8 +31,10 @@ if login.present?
                     redirect_to "/select/show"
                 end
             # end
-        else 　
+        else
+            flash[:alert] = 'ＩＤかＰＷが間違っています。入力し直してください。'
             render :show
+            return
         end
     end
 end

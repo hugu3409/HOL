@@ -1,26 +1,41 @@
 <br><br><br><br><br><br><br><br>
+<div style = "margin:0px 0px 0px 630px;">
+<% if flash[:alert] %>
+    <div class = "col-6">
+         
+         <div class="alert alert-danger">
+                <p align = "center">
+                <font size = "4">
+                    <%= flash[:alert] %>
+                </font>
+                </p>
+            </div>
+        </div>
+   
+<% end %>
+ </div>
 <%# 表の線 %>
 <table border = "5" align = "center"> 
-<td><br><br><h1 align = "center">健康観察簿システム</h1><br><br>
-<%= form_tag login_path do %>
-<table align = "center">
- <tr>
-    <td><p align = "center"><font size="5">ID</font>&nbsp;</p></td>
-    <td><p align = "center"><%= text_field_tag :teacher_id %>&nbsp;&nbsp;&nbsp;</p></td>
-    <%# 管理者用のチェック %>
-    <%# <td><sup><%=check_box_tag'kanri',true,false,{style: "transform: scale(2);"}</sup></td> %>
- </tr>
-</table>
+    <td><br><br><h1 align = "center">健康観察簿システム</h1><br><br>
+        <%= form_tag login_path do %>
+            <table align = "center">
+                <tr>
+                    <td><p align = "center"><font size="5">ID</font>&nbsp;</p></td>
+                    <td><p align = "center"><%= text_field_tag :teacher_id %>&nbsp;&nbsp;&nbsp;</p></td>
+                    <%# 管理者用のチェック %>
+                    <%# <td><sup><%=check_box_tag'kanri',true,false,{style: "transform: scale(2);"}</sup></td> %>
+                </tr>
+            </table>
 
-<table align = "center">
- <tr>
-    <td><p align = "center"><font size="5">PW</font></p></td>
-    <td><p align = "center"><%= text_field_tag :password %>　&nbsp;&nbsp;</p></td>
- </tr>
-</table><br>
-<%# 全角スペースを入れて右にしてる↓ %>
-    <p align = "center">　　　　　　　　　　　　　　　　　　　　　<font size="3"><%= submit_tag "ログイン" %></font>　&nbsp; </p>
+            <table align = "center">
+                <tr>
+                    <td><p align = "center"><font size="5">PW</font></p></td>
+                    <td><p align = "center"><%= text_field_tag :password %>　&nbsp;&nbsp;</p></td>
+                </tr>
+            </table><br>
+            <%# 全角スペースを入れて右にしてる↓ %>
+                <p align = "center">　　　　　　　　　　　　　　　　　　　　　<font size="3"><%= submit_tag "ログイン" %></font>　&nbsp; </p>
 
-<% end %>
-</td>
+        <% end %>
+    </td>
 </table>
