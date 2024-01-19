@@ -16,7 +16,8 @@
  </div>
 <%# 表の線 %>
 <table border = "5" align = "center"> 
-    <td><br><br><h1 align = "center">健康観察簿システム</h1><br><br>
+    <td>
+        <br><br><h1 align = "center">健康観察簿システム</h1><br><br>
         <%= form_tag login_path do %>
             <table align = "center">
                 <tr>
@@ -34,8 +35,7 @@
                 </tr>
             </table><br>
             <%# 全角スペースを入れて右にしてる↓ %>
-                <p align = "center">　　　　　　　　　　　　　　　　　　　　　<font size="3"><%= submit_tag "ログイン" %></font>　&nbsp; </p>
-
+            <p align = "center">　　　　　　　　　　　　　　　　　　　　　<font size="3"><%= submit_tag "ログイン" %></font>　&nbsp; </p>
         <% end %>
     </td>
 </table>

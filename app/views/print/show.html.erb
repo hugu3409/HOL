@@ -25,7 +25,7 @@
         <% @classroom.keys.each do |grade| %>
             <% Situation.target_list.each do |s| %>
                 <% @attendance_hash[grade][s.id].each do |row| %>
-                    <tr>
+                    <tr <%= "class=table-active" if s.fumei? %> >
                         <% if @grade_header_row.include?(current_row) %>
                             <td rowspan="<%= @attendance_count_hash[grade][:count_sammary] %>" class="table-light"><center><font class="all-grade" size="4"><%= "#{grade}年" %></font></center></td>
                         <% end %>
