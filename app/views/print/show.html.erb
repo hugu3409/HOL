@@ -1,4 +1,5 @@
-<h1>全学年出欠</h1>
+<h1 class="zengakunen">全学年出欠</h1>
+<%= @base_date %>
 <table border="2" class="table table-bordered">
     <thead class="table-light">
         <tr>
@@ -10,14 +11,14 @@
         </tr>
         <tr>
             <td colspan="2">&nbsp;</td>
-            <td class="table-light2">名前・症状</td>
-            <td class="table-light2">期間</td>
-            <td class="table-light2">名前・症状</td>
-            <td class="table-light2">期間</td>
-            <td class="table-light2">名前・症状</td>
-            <td class="table-light2">期間</td>
-            <td class="table-light2">名前・症状</td>
-            <td class="table-light2">期間</td>
+            <td class="table-light21">名前・症状</td>
+            <td class="table-light22">期間</td>
+            <td class="table-light21">名前・症状</td>
+            <td class="table-light22">期間</td>
+            <td class="table-light21">名前・症状</td>
+            <td class="table-light22">期間</td>
+            <td class="table-light21">名前・症状</td>
+            <td class="table-light22">期間</td>
         </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -43,6 +44,8 @@
         <% end %>
     </tbody>
 </table>
-<%= link_to "戻る", attendance_list_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>
-<%= link_to "印刷", nil, onclick: "window.print()", class: "btn btn-outline-secondary btn-lg"  %>
-<%= link_to "ログアウト", login_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>
+<div class="botan">
+    <%= link_to "戻る", attendance_list_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>
+    <%= link_to "印刷", nil, onclick: "window.print()", class: "btn btn-outline-secondary btn-lg"  %>
+    <%= link_to "ログアウト", login_show_path(@current_classroom_id, base_date: @base_date), class: "btn btn-outline-secondary btn-lg" %>
+</div>
