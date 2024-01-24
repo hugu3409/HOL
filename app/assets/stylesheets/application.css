@@ -13,11 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ /*table{
+    border-collapse: separate
+  }*/
+
 .table-light{
     font-size: 15px;
     vertical-align: middle;
 }
-.table-light2{
+.table-light21{
+    font-size: 15px;
+    vertical-align: middle;
+    text-align:center;
+}
+.table-light22{
     font-size: 15px;
     vertical-align: middle;
     text-align:center;
@@ -35,4 +45,19 @@
 }
 .all-grade{
     font-size:25px;
+}
+@media print {  /*印刷の時だけ見た目変わる*/
+    @page{/*横印刷*/
+        size: A4 landscape;
+    }
+    .zengakunen{
+        display: none;
+    }
+    .botan{
+        display: none;
+    }
+    .table-light22{
+        font-size:10px;
+        width:50px;
+    }
 }

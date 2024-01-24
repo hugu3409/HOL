@@ -1,4 +1,18 @@
 <br><br><br><br><br><br><br><br>
+<center>
+<% if flash[:alert] %>
+    <div class = "col-4">
+         
+         <div class="alert alert-danger">
+                <p align = "center">
+                <font size = "4">
+                    <%= flash[:alert] %>
+                </font>
+                </p>
+            </div>
+        </div>
+<% end %>
+</center>
 <%# 表の線 %>
 <table border = "5" align = "center"> 
     <td>

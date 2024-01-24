@@ -1,7 +1,7 @@
 <h1>出欠一覧</h1>
 
 <table border="1" class="table table-bordered table-hover"><!--class="table table-striped" これ入れると表がストライプなる-->
-    <thead class="table-light"> <!--いるらしい-->
+    <thead class="sticky-top bg-white"> <!--いるらしい--><!--class名はこれにするとヘッダーが固定される-->
         <tr>
             <td colspan="2">
                 <%= collection_select :classroom, :classroom_id, @classrooms, :id, :name, {selected: @classroom_id}, {class: "form-control"} %>

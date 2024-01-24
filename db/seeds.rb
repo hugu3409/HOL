@@ -33,8 +33,9 @@ c34 = Classroom.create(grade: 3, number: 4, name: "３年４組")
 Teacher.create(teacher_id: "14nagata", password: "14", name: "永田亮", kanri: false,  classroom_id: c14.id)
 Teacher.create(teacher_id: "24yoshida", password: "24", name: "吉田利幸", kanri: false,  classroom_id: c24.id)
 Teacher.create(teacher_id: "34sato", password: "34", name: "佐藤魁人", kanri: false,  classroom_id: c34.id)
-Teacher.create(teacher_id: "00kotyo", password: "00", name: "水津則義", kanri: false, classroom_id: nil)
-Teacher.create(teacher_id: "55hoken", password: "55", name: "齋藤果歩", kanri: false, classroom_id: nil)
+Teacher.create(teacher_id: "00suizu", password: "00", name: "水津則義", kanri: false, classroom_id: nil)
+Teacher.create(teacher_id: "01tsunoori", password: "01", name: "角折義男", kanri: false, classroom_id: nil)
+Teacher.create(teacher_id: "55saito", password: "55", name: "齋藤果歩", kanri: false, classroom_id: nil)
 
 # 生徒
 # 一年四組
@@ -151,6 +152,11 @@ s3431 = Student.create(name: "森山 洋介", classroom_id: c34.id, number: 31)
 s3432 = Student.create(name: "山根 采華", classroom_id: c34.id, number: 32)
 s3433 = Student.create(name: "米山 遥人", classroom_id: c34.id, number: 33)
 s3434 = Student.create(name: "渡邊 虎徳", classroom_id: c34.id, number: 34)
+#架空の生徒
+s1207 = Student.create(name: "出雲 蕎麦", classroom_id: c12.id, number: 7)
+s2230 = Student.create(name: "出雲 商業", classroom_id: c22.id, number: 30)
+s2101 = Student.create(name: "出商 太郎", classroom_id: c21.id, number: 1)
+s3321 = Student.create(name: "よすみ ちゃん", classroom_id: c33.id, number: 21)
 
 
 # 出欠区分
@@ -163,14 +169,12 @@ s_fumei = Situation.create(name: "不明")
 # 出欠情報
 #base_date = Date.today
 base_date = Time.local(2024, 2, 7)
-Attendance.create(date: base_date,     student_id: s3402.id, situation_id: s_kesseki.id, reason: "体調不良", period_start: nil, period_end: nil, comment: "コメント１－１", teacher_id: nil)
-Attendance.create(date: base_date - 3, student_id: s3404.id, situation_id: s_fumei.id, reason: "", period_start: nil, period_end: nil, comment: "コメント１－２", teacher_id: nil)
-Attendance.create(date: base_date - 1, student_id: s3405.id, situation_id: s_chikoku.id, reason: "寝坊", period_start: nil, period_end: nil, comment: "コメント１－３", teacher_id: nil)
-Attendance.create(date: base_date + 2, student_id: s3409.id, situation_id: s_kesseki.id, reason: "体調不良", period_start: nil, period_end: nil, comment: "コメント１－４", teacher_id: nil)
-Attendance.create(date: base_date + 3, student_id: s3413.id, situation_id: s_kesseki.id, reason: "家庭の用事", period_start: nil, period_end: nil, comment: "コメント１－５", teacher_id: nil)
-Attendance.create(date: base_date,     student_id: s3418.id, situation_id: s_syuttei.id, reason: "部活動の大会",     period_start: base_date, period_end: base_date + 3, comment: "コメント２", teacher_id: nil)
-Attendance.create(date: base_date + 1, student_id: s3420.id, situation_id: s_chikoku.id, reason: "体調不良",     period_start: nil, period_end: nil, comment: "コメント３", teacher_id: nil)
-Attendance.create(date: base_date,     student_id: s3422.id, situation_id: s_soutai.id,  reason: "体調不良",     period_start: nil, period_end: nil, comment: "コメント４", teacher_id: nil)
-Attendance.create(date: base_date,     student_id: s3427.id, situation_id: s_soutai.id,  reason: "体調不良",     period_start: nil, period_end: nil, comment: "コメント５", teacher_id: nil)
-Attendance.create(date: base_date,     student_id: s3430.id, situation_id: s_syuttei.id, reason: "インフルエンザ", period_start: base_date - 1, period_end: base_date + 2, comment: "コメント２", teacher_id: nil)
-Attendance.create(date: base_date + 2, student_id: s3433.id, situation_id: s_kesseki.id, reason: "体調不良", period_start: nil, period_end: nil, comment: "コメント５－１", teacher_id: nil)
+Attendance.create(date: base_date,     student_id: s3402.id, situation_id: s_kesseki.id, reason: "体調不良", period_start: nil, period_end: nil, comment: "37.5", teacher_id: nil)
+Attendance.create(date: base_date,     student_id: s3404.id, situation_id: s_fumei.id, reason: nil, period_start: nil, period_end: nil, comment: nil, teacher_id: nil)
+Attendance.create(date: base_date - 1, student_id: s3405.id, situation_id: s_chikoku.id, reason: "寝坊", period_start: nil, period_end: nil, comment: nil, teacher_id: nil)
+Attendance.create(date: base_date - 1, student_id: s3430.id, situation_id: s_syuttei.id, reason: "インフル", period_start: base_date - 1, period_end: base_date, comment: "38.7", teacher_id: nil)
+Attendance.create(date: base_date,     student_id: s3430.id, situation_id: s_syuttei.id, reason: "インフル", period_start: base_date - 1, period_end: base_date, comment: "38.7", teacher_id: nil)
+Attendance.create(date: base_date,     student_id: s1207.id, situation_id: s_kesseki.id, reason: "体調不良", period_start: nil, period_end: nil, comment: "37.5", teacher_id: nil)
+Attendance.create(date: base_date + 1, student_id: s2230.id, situation_id: s_kesseki.id, reason: "家庭の事情", period_start: nil, period_end: nil, comment: nil, teacher_id: nil)
+Attendance.create(date: base_date,     student_id: s2101.id, situation_id: s_fumei.id, reason: nil, period_start: nil, period_end: nil, comment: nil, teacher_id: nil)
+Attendance.create(date: base_date,     student_id: s3321.id, situation_id: s_chikoku.id, reason: "寝坊", period_start: nil, period_end: nil, comment: nil, teacher_id: nil)
