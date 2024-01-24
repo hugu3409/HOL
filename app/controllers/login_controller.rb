@@ -17,7 +17,7 @@ class LoginController < ApplicationController
 
         @teacher = Teacher.find_by(teacher_id: params[:teacher_id])
 
-        if   @teacher.password == params[:password]
+        if  @teacher && @teacher.password == params[:password]
             # if @teacher.kanri
             #     if params[:kanri] == "true"
             #         redirect_to "/teachers/new"
