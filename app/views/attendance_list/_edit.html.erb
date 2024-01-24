@@ -72,3 +72,21 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+<!--
+    // 出欠種別が出停の場合、期間を必須とする
+    $("input[name='attendance[situation_id]']").change(function() {
+        var syuttei_id = <%= Situation.syuttei.id %>;
+        var selected_id = $(this).val();
+        
+        if (syuttei_id == selected_id) {
+            $("#attendance_period_start").attr("required", true);
+            $("#attendance_period_end").attr("required", true);
+        } else {
+            $("#attendance_period_start").attr("required", false);
+            $("#attendance_period_end").attr("required", false);
+        }
+    });
+// -->
+</script>

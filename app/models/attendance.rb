@@ -1,6 +1,8 @@
 class Attendance < ApplicationRecord
     belongs_to :situation
     belongs_to :student    #joinsと関係するよー
+    
+    validates :date, uniqueness: { scope: :student_id }
 
     def student_name_and_reazon
         "#{self.student.name}(#{self.reason})" if self.id.present?
