@@ -3,6 +3,8 @@ class CheckController < ApplicationController
     @classroom_id = params[:classroom_id]
     @base_date = params[:base_date]
 
+    @current_classroom = Classroom.find(@classroom_id);
+
     #attendanceテーブルからデータを取ってくる
     #  [取得条件]
     #　　dateが@base_dateと一致
