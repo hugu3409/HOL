@@ -47,7 +47,7 @@
     font-size:25px;
 }
 @media print {  /*印刷の時だけ見た目変わる*/
-    @page{
+    @page{/*横印刷*/
         size: A4 landscape;
     }
     .zengakunen{
@@ -55,10 +55,6 @@
     }
     .botan{
         display: none;
-    }
-    .table-light21{
-        font-size:10px;
-        width:40px;
     }
     .table-light22{
         font-size:10px;
