@@ -13,3 +13,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require('jquery')
+
+import $ from 'jquery';
+global.$ = jQuery;
