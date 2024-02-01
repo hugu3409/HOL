@@ -14,5 +14,6 @@ ActiveStorage.start()
 
 require('jquery')
 
-import $ from 'jquery';
-global.$ = jQuery;
+var jQuery = require('jquery')
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
